@@ -92,6 +92,19 @@ const Button = tw("button")`${styles.button} text-lg`
 
 See the [examples](./examples/) directory for more.
 
+### Compatibility with VSCode TailwindCSS extension
+
+To get the best experience with the [TailwindCSS Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+extension for VSCode, you can add the following to your `settings.json`:
+
+```json
+{
+  "tailwindCSS.experimental.classRegex": [
+    "tw\\(.*?\\)`([^`]*)" // tw(Component)`...`
+  ]
+}
+```
+
 ## How it works
 
 The `tw` function is a tagged template literal that takes a string of Tailwind
