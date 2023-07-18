@@ -6,6 +6,8 @@ TailwindCSS without relying on a CSS-in-JS library and Babel macros.
 This library can replace a good chunk of the functionality of
 [twin.macro](https://github.com/ben-rogerson/twin.macro).
 
+It is published on the [npm registry as `tw-lite`](https://www.npmjs.com/package/tw-lite).
+
 ## Goals
 
 - Compatible with any bundler
