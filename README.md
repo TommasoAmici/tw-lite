@@ -29,11 +29,15 @@ bun add tw-lite
 
 ## Usage
 
-You can use the `tw` import to create and style new components:
+All the examples below expect the following import:
 
 ```js
 import tw from 'tw-lite'
+```
 
+You can use the `tw` import to create and style new components:
+
+```js
 const Input = tw("input")`border hover:border-black`
 ```
 
@@ -42,6 +46,31 @@ And clone and style existing components:
 ```js
 const PurpleInput = tw(Input)`border-purple-500`
 ```
+
+### Transient props
+
+You can define transient props that will be passed to the component, you can
+leverage these props to add dynamic styles:
+
+```jsx
+type Props = {
+  $isEnabled: boolean;
+  $variant: "primary" | "secondary";
+}
+
+const Button = tw("button")<Props>`
+  ${props => props.$variant === "primary" ? "bg-blue-500" : "bg-gray-500"}
+  ${props => props.$isEnabled ? "cursor-pointer" : "cursor-not-allowed"}
+`
+
+<Button $isEnabled $variant="primary">Click me!</Button>
+// this will render
+<button class="bg-blue-500 cursor-pointer">Click me!</button>
+```
+
+Transient props should be prefixed with `$` so they are not passed to HTML tags
+to avoid polluting the DOM with extra attributes. However, they are always
+forwarded to React components.
 
 ### Good old CSS
 
