@@ -1,7 +1,7 @@
 {
   "name": "tw-lite",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Tommaso Amici",
     "email": "me@tommasoamici.com",
@@ -14,7 +14,9 @@
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublish": "rm -r dist && bun run build && cp ../../README.md README.md",
+    "postpublish": "rm README.md"
   },
   "devDependencies": {
     "@parcel/packager-ts": "2.9.3",
