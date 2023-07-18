@@ -1,0 +1,31 @@
+{
+  "name": "tw-lite",
+  "license": "MIT",
+  "version": "0.1.0",
+  "author": {
+    "name": "Tommaso Amici",
+    "email": "me@tommasoamici.com",
+    "url": "https://tommasoamici.com"
+  },
+  "source": "src/index.tsx",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "2.9.3",
+    "@parcel/transformer-typescript-types": "2.9.3",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "bun-types": "latest",
+    "parcel": "^2.9.3",
+    "typescript": "^5.1.6"
+  },
+  "peerDependencies": {
+    "react": ">16",
+    "react-dom": ">16"
+  }
+}
