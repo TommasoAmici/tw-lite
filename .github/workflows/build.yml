@@ -1,0 +1,24 @@
+name: Build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - run: bun install --ignore-scripts --no-progress
+      - run: bun test
+      - run: cd packages/tw-lite && bun typecheck
+      - run: cd packages/tw-lite && bun run build
