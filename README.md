@@ -1,6 +1,6 @@
 # tw-lite
 
-This small library can be used to generate React components styled with
+This small library can be used to generate React styled components with
 TailwindCSS without relying on a CSS-in-JS library and Babel macros.
 
 This library can replace a good chunk of the functionality of
@@ -54,7 +54,7 @@ const PurpleInput = tw(Input)`border-purple-500`
 You can define transient props that will be passed to the component, you can
 leverage these props to add dynamic styles:
 
-```jsx
+```tsx
 type Props = {
   $isEnabled: boolean;
   $variant: "primary" | "secondary";
