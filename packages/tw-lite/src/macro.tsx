@@ -23,14 +23,14 @@ function componentFactory<
   strings: TemplateStringsArray,
   args: TemplateStringsArgs<Props>
 ) {
-  function Component(
-    props: PolymorphicComponentProps<OuterAs, Props> & { as?: undefined }
-  ): React.ReactElement;
   function Component<InnerAs extends React.ElementType>(
     props: PolymorphicComponentProps<InnerAs, Props> & { as: InnerAs }
   ): React.ReactElement;
-  function Component<T extends Props & WithClassName & WithChildren & WithAs>(
-    props: T
+  function Component(
+    props: PolymorphicComponentProps<OuterAs, Props> & { as?: undefined }
+  ): React.ReactElement;
+  function Component(
+    props: PolymorphicComponentProps<React.ElementType, Props> & WithAs
   ) {
     const Tag = props.as ?? as;
 
