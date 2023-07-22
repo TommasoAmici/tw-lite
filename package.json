@@ -1,7 +1,37 @@
 {
-  "private": true,
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ]
+  "name": "tw-lite",
+  "license": "MIT",
+  "version": "0.1.1",
+  "author": {
+    "name": "Tommaso Amici",
+    "email": "me@tommasoamici.com",
+    "url": "https://tommasoamici.com"
+  },
+  "sideEffects": false,
+  "source": "src/index.tsx",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build",
+    "typecheck": "tsc --noEmit",
+    "prepublish": "rm -r dist && bun run build && cp ../../README.md README.md",
+    "postpublish": "rm README.md"
+  },
+  "devDependencies": {
+    "@happy-dom/global-registrator": "10.5.2",
+    "@parcel/packager-ts": "2.9.3",
+    "@parcel/transformer-typescript-types": "2.9.3",
+    "@testing-library/react": "14.0.0",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "bun-types": "latest",
+    "parcel": "2.9.3",
+    "typescript": "5.1.6"
+  },
+  "peerDependencies": {
+    "react": ">16",
+    "react-dom": ">16"
+  }
 }
