@@ -7,6 +7,7 @@
     "email": "me@tommasoamici.com",
     "url": "https://tommasoamici.com"
   },
+  "sideEffects": false,
   "source": "src/index.tsx",
   "main": "dist/main.js",
   "module": "dist/module.js",
