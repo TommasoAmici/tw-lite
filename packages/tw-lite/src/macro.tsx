@@ -1,9 +1,7 @@
-import type {
-  PolymorphicComponentProps,
-  WithAs,
-  WithChildren,
-  WithClassName,
-} from "./types";
+/// <reference lib="dom" />
+
+import React from "react";
+import type { PolymorphicComponentProps, WithAs } from "./types";
 
 type InterpolatedFunctionReturn = string | undefined | null | false;
 type TemplateStringsArgs<Props extends {} = {}> = (
@@ -23,14 +21,27 @@ function componentFactory<
   strings: TemplateStringsArray,
   args: TemplateStringsArgs<Props>
 ) {
+  // if the `as` prop is set and it is an HTML tag we can use the ref prop
+  function Component<InnerAs extends keyof HTMLElementTagNameMap>(
+    props: PolymorphicComponentProps<InnerAs, Props> & { as: InnerAs },
+    ref?: React.ForwardedRef<HTMLElementTagNameMap[InnerAs]>
+  ): React.ReactElement;
+  // if the `as` prop is set and it is not an HTML tag we cannot use the ref prop
   function Component<InnerAs extends React.ElementType>(
-    props: PolymorphicComponentProps<InnerAs, Props> & { as: InnerAs }
+    props: PolymorphicComponentProps<InnerAs, Props> & { as: InnerAs },
+    ref?: undefined
+  ): React.ReactElement;
+  // if the `as` prop is not set we can use the ref prop only if OuterAs
+  // is an HTML tag
+  function Component(
+    props: PolymorphicComponentProps<OuterAs, Props> & { as?: undefined },
+    ref?: OuterAs extends keyof HTMLElementTagNameMap
+      ? React.ForwardedRef<HTMLElementTagNameMap[OuterAs]>
+      : undefined
   ): React.ReactElement;
   function Component(
-    props: PolymorphicComponentProps<OuterAs, Props> & { as?: undefined }
-  ): React.ReactElement;
-  function Component(
-    props: PolymorphicComponentProps<React.ElementType, Props> & WithAs
+    props: PolymorphicComponentProps<React.ElementType, Props> & WithAs,
+    ref?: React.Ref<HTMLElement>
   ) {
     const Tag = props.as ?? as;
 
@@ -74,12 +85,17 @@ function componentFactory<
     return (
       <Tag
         {...filteredProps}
+        ref={ref}
         className={[...classNames, className].join(" ").trim()}
       />
     );
   }
 
-  return Component;
+  // @ts-expect-error this type cast is necessary to make the `as` prop work
+  // with React.forwardRef, I don't know of a better way, although I'm sure
+  // there is one
+  // @see https://stackoverflow.com/a/58473012/5008494
+  return React.forwardRef(Component) as typeof Component;
 }
 
 export function tw<As extends React.ElementType>(

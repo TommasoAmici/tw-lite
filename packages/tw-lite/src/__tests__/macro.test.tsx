@@ -1,6 +1,15 @@
-import { describe, expect, test } from "bun:test";
+/// <reference lib="dom" />
+
+import { render } from "@testing-library/react";
+import { beforeEach, describe, expect, test } from "bun:test";
+import React, { forwardRef } from "react";
 import { renderToString } from "react-dom/server";
+
 import { tw } from "../macro";
+
+beforeEach(() => {
+  document.body.innerHTML = "";
+});
 
 test("tw with HTML tag", () => {
   const Component = tw("button")`text-primary-700`;
@@ -287,4 +296,27 @@ describe.skip("tw with `as` prop type tests", () => {
       </Component>
     );
   });
+});
+
+test("with ref: control", () => {
+  const Component = forwardRef<HTMLButtonElement>(function Component(
+    props,
+    ref
+  ) {
+    return <button {...props} ref={ref} />;
+  });
+
+  const ref = React.createRef<HTMLButtonElement>();
+  render(<Component ref={ref} />);
+
+  expect(ref.current).toBeInstanceOf(HTMLButtonElement);
+});
+
+test("with ref: tw-lite", () => {
+  const Component = tw("button")`text-primary-700`;
+
+  const ref = React.createRef<HTMLButtonElement>();
+  render(<Component ref={ref}>Button</Component>);
+
+  expect(ref.current).toBeInstanceOf(HTMLButtonElement);
 });
