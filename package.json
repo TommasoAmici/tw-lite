@@ -16,8 +16,7 @@
     "watch": "parcel watch",
     "build": "parcel build",
     "typecheck": "tsc --noEmit",
-    "prepublish": "rm -r dist && bun run build && cp ../../README.md README.md",
-    "postpublish": "rm README.md"
+    "prepublish": "sh ./scripts/prepublish.sh"
   },
   "devDependencies": {
     "@happy-dom/global-registrator": "10.5.2",
