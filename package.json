@@ -7,6 +7,10 @@
     "email": "me@tommasoamici.com",
     "url": "https://tommasoamici.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TommasoAmici/tw-lite.git"
+  },
   "sideEffects": false,
   "source": "src/index.tsx",
   "main": "dist/main.js",
