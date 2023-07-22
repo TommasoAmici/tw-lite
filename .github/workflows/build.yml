@@ -20,5 +20,5 @@ jobs:
 
       - run: bun install --ignore-scripts --no-progress
       - run: bun test
-      - run: cd packages/tw-lite && bun typecheck
-      - run: cd packages/tw-lite && bun run build
+      - run: bun typecheck
+      - run: bun run build
