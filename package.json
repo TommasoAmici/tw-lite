@@ -27,7 +27,9 @@
     "@types/react-dom": "18.2.7",
     "bun-types": "latest",
     "parcel": "2.9.3",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "react": ">16",
+    "react-dom": ">16"
   },
   "peerDependencies": {
     "react": ">16",
