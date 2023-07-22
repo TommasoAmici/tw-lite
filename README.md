@@ -1,12 +1,14 @@
 # tw-lite
 
+[![npm registry](https://img.shields.io/npm/v/tw-lite)]((https://www.npmjs.com/package/tw-lite))
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/tw-lite)](https://bundlephobia.com/package/tw-lite@0.2.0)
+[![MIT License](https://img.shields.io/npm/l/tw-lite)](./LICENSE)
+
 This small library can be used to generate React styled components with
 TailwindCSS without relying on a CSS-in-JS library and Babel macros.
 
 This library can replace a good chunk of the functionality of
 [twin.macro](https://github.com/ben-rogerson/twin.macro).
-
-It is published on the [npm registry as `tw-lite`](https://www.npmjs.com/package/tw-lite).
 
 ## Goals
 
