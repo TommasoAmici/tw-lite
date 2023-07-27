@@ -16,7 +16,7 @@
   "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
-  "types": "dist/types.d.ts",
+  "types": "src/index.ts",
   "scripts": {
     "build": "rollup --config rollup.config.js",
     "typecheck": "tsc --noEmit",
