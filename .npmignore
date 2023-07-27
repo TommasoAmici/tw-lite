@@ -1,3 +1,6 @@
 examples/
 scripts/
 .github/
+rollup.config.js
+bunfig.toml
+bun.lockb
