@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2023-07-27
+
+### Fixed
+
+- Component props are now correctly type checked and auto-completed by IDEs ([#6](https://github.com/TommasoAmici/tw-lite/issues/6))
+
 ## [0.2.0] - 2023-07-22
 
 ### Added
