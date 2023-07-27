@@ -12,7 +12,7 @@
     "url": "https://github.com/TommasoAmici/tw-lite.git"
   },
   "sideEffects": false,
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
   "types": "dist/types.d.ts",
