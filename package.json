@@ -11,29 +11,29 @@
     "type": "git",
     "url": "https://github.com/TommasoAmici/tw-lite.git"
   },
+  "type": "module",
   "sideEffects": false,
   "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
   "types": "dist/types.d.ts",
   "scripts": {
-    "watch": "parcel watch",
-    "build": "parcel build",
+    "build": "rollup --config rollup.config.js",
     "typecheck": "tsc --noEmit",
     "preversion": "bun test",
     "prepublish": "sh ./scripts/prepublish.sh"
   },
   "devDependencies": {
     "@happy-dom/global-registrator": "10.5.2",
-    "@parcel/packager-ts": "2.9.3",
-    "@parcel/transformer-typescript-types": "2.9.3",
+    "@rollup/plugin-typescript": "11.1.2",
     "@testing-library/react": "14.0.0",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "bun-types": "latest",
-    "parcel": "2.9.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "rollup": "3.26.3",
+    "tslib": "2.6.1",
     "typescript": "5.1.6"
   },
   "peerDependencies": {
