@@ -3,7 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "build": "bun run build.ts",
+    "prestart": "bun run build.ts",
     "start": "bunx serve"
   },
   "devDependencies": {

@@ -22,7 +22,7 @@ export const ButtonBlue = tw(Button)`bg-blue-700 text-white`;
 export function App() {
   return (
     <Column>
-      <ButtonRed>Hello Red</ButtonRed>
+      <ButtonRed onClick={(e) => e.preventDefault()}>Hello Red</ButtonRed>
       <ButtonBlue>Hello Blue</ButtonBlue>
       <ButtonBlue className="text-xl p-8">Hello Blue big</ButtonBlue>
       <StyledMyComponent someProp={true} />
