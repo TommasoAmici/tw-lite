@@ -14,8 +14,8 @@
   "type": "module",
   "sideEffects": false,
   "source": "src/index.ts",
-  "main": "dist/main.js",
-  "module": "dist/module.js",
+  "main": "dist/main.cjs",
+  "module": "dist/module.mjs",
   "types": "src/index.ts",
   "scripts": {
     "build": "rollup --config rollup.config.js",

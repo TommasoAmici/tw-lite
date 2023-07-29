@@ -5,11 +5,11 @@ export default defineConfig({
   input: "src/index.ts",
   output: [
     {
-      file: "dist/main.js",
+      file: "dist/main.cjs",
       format: "cjs",
     },
     {
-      file: "dist/module.js",
+      file: "dist/module.mjs",
       format: "esm",
     },
   ],
