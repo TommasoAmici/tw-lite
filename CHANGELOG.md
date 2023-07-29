@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.2] - 2023-07-29
+
+### Fixed
+
+- Projects initialized with `"type": "module"` would fail to import `tw-lite` as
+its `"main"` file is CJS.
+
 ## [0.2.1] - 2023-07-27
 
 ### Fixed
